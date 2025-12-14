@@ -41,11 +41,15 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const pageId = this.getAttribute('data-page');
             if (pageId === 'servicio') {
-                // Scroll a la sección de precio
-                const priceSection = document.querySelector('.price-section');
-                if (priceSection) {
-                    priceSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                // Primero cambiar a la página de inicio
+                showPage('inicio');
+                // Luego hacer scroll a la sección de precio después de un pequeño delay
+                setTimeout(() => {
+                    const priceSection = document.querySelector('.price-section');
+                    if (priceSection) {
+                        priceSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
             } else if (pageId) {
                 showPage(pageId);
             }
@@ -111,11 +115,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const hash = window.location.hash.substring(1);
         if (hash) {
             if (hash === 'servicio') {
-                // Scroll a la sección de precio
-                const priceSection = document.querySelector('.price-section');
-                if (priceSection) {
-                    priceSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                // Primero cambiar a la página de inicio
+                showPage('inicio');
+                // Luego hacer scroll a la sección de precio
+                setTimeout(() => {
+                    const priceSection = document.querySelector('.price-section');
+                    if (priceSection) {
+                        priceSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
             } else {
                 const pageMap = {
                     'inicio': 'inicio',
@@ -133,10 +141,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const initialHash = window.location.hash.substring(1);
     if (initialHash) {
         if (initialHash === 'servicio') {
-            const priceSection = document.querySelector('.price-section');
-            if (priceSection) {
-                priceSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+            // Primero cambiar a la página de inicio
+            showPage('inicio');
+            // Luego hacer scroll a la sección de precio
+            setTimeout(() => {
+                const priceSection = document.querySelector('.price-section');
+                if (priceSection) {
+                    priceSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
         } else {
             const pageMap = {
                 'inicio': 'inicio',

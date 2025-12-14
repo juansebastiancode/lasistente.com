@@ -465,13 +465,12 @@ main {
     transition: all 0.3s ease;
     width: 100%;
     box-shadow: none;
-    border: 1px solid #e0e0e0;
+    border: none;
 }
 
 .contact-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    border-color: var(--accent-color);
+    transform: none;
+    box-shadow: none;
 }
 
 .contact-icon {
