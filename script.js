@@ -1,0 +1,131 @@
+// Navegación entre páginas
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const pages = document.querySelectorAll('.page');
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    const header = document.getElementById('header');
+    const btnContactar = document.getElementById('btnContactar');
+
+    // Función para cambiar de página
+    function showPage(pageId) {
+        pages.forEach(page => {
+            page.classList.remove('active');
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+        });
+
+        const targetPage = document.getElementById(pageId);
+        if (targetPage) {
+            targetPage.classList.add('active');
+        }
+
+        const activeLink = document.querySelector(`[data-page="${pageId}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        if (navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+        }
+    }
+
+    // Event listeners para los enlaces de navegación
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const pageId = this.getAttribute('data-page');
+            if (pageId) {
+                showPage(pageId);
+            }
+        });
+    });
+
+    // Event listeners para los enlaces del footer
+    const footerLinks = document.querySelectorAll('.footer-link[data-page]');
+    footerLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const pageId = this.getAttribute('data-page');
+            if (pageId) {
+                showPage(pageId);
+            }
+        });
+    });
+
+    // Manejo del menú móvil
+    if (navToggle) {
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    }
+
+    // Cerrar menú móvil al hacer clic fuera
+    document.addEventListener('click', function(e) {
+        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+        }
+    });
+
+    // Header transparente que se vuelve sólido al hacer scroll
+    let lastScroll = 0;
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+
+    // Botón de contactar en hero
+    if (btnContactar) {
+        btnContactar.addEventListener('click', function(e) {
+            e.preventDefault();
+            const contactSection = document.querySelector('.contact-section');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
+
+
+    // Manejo de hash en la URL
+    window.addEventListener('hashchange', function() {
+        const hash = window.location.hash.substring(1);
+        if (hash) {
+            const pageMap = {
+                'inicio': 'inicio',
+                'quienes-somos': 'quienes-somos',
+                'aviso-legal': 'aviso-legal'
+            };
+            if (pageMap[hash]) {
+                showPage(pageMap[hash]);
+            }
+        }
+    });
+
+    // Inicializar página según hash
+    const initialHash = window.location.hash.substring(1);
+    if (initialHash) {
+        const pageMap = {
+            'inicio': 'inicio',
+            'quienes-somos': 'quienes-somos',
+            'aviso-legal': 'aviso-legal'
+        };
+        if (pageMap[initialHash]) {
+            showPage(pageMap[initialHash]);
+        }
+    }
+});
+
