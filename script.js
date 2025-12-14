@@ -40,7 +40,13 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const pageId = this.getAttribute('data-page');
-            if (pageId) {
+            if (pageId === 'servicio') {
+                // Scroll a la sección de precio
+                const priceSection = document.querySelector('.price-section');
+                if (priceSection) {
+                    priceSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            } else if (pageId) {
                 showPage(pageId);
             }
         });
@@ -104,13 +110,21 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('hashchange', function() {
         const hash = window.location.hash.substring(1);
         if (hash) {
-            const pageMap = {
-                'inicio': 'inicio',
-                'quienes-somos': 'quienes-somos',
-                'aviso-legal': 'aviso-legal'
-            };
-            if (pageMap[hash]) {
-                showPage(pageMap[hash]);
+            if (hash === 'servicio') {
+                // Scroll a la sección de precio
+                const priceSection = document.querySelector('.price-section');
+                if (priceSection) {
+                    priceSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            } else {
+                const pageMap = {
+                    'inicio': 'inicio',
+                    'quienes-somos': 'quienes-somos',
+                    'aviso-legal': 'aviso-legal'
+                };
+                if (pageMap[hash]) {
+                    showPage(pageMap[hash]);
+                }
             }
         }
     });
@@ -118,13 +132,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar página según hash
     const initialHash = window.location.hash.substring(1);
     if (initialHash) {
-        const pageMap = {
-            'inicio': 'inicio',
-            'quienes-somos': 'quienes-somos',
-            'aviso-legal': 'aviso-legal'
-        };
-        if (pageMap[initialHash]) {
-            showPage(pageMap[initialHash]);
+        if (initialHash === 'servicio') {
+            const priceSection = document.querySelector('.price-section');
+            if (priceSection) {
+                priceSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        } else {
+            const pageMap = {
+                'inicio': 'inicio',
+                'quienes-somos': 'quienes-somos',
+                'aviso-legal': 'aviso-legal'
+            };
+            if (pageMap[initialHash]) {
+                showPage(pageMap[initialHash]);
+            }
         }
     }
 });
