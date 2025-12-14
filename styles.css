@@ -590,9 +590,10 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 3fr;
     gap: 4rem;
     margin-bottom: 3rem;
+    justify-items: end;
 }
 
 .footer-brand {
@@ -617,8 +618,11 @@ main {
 
 .footer-links {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    justify-content: end;
+    margin-left: auto;
+    max-width: 600px;
 }
 
 .footer-column {
