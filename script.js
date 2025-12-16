@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const pageId = this.getAttribute('data-page');
-            if (pageId === 'servicio') {
+            if (pageId === 'servicio' || pageId === 'precio') {
                 // Primero cambiar a la página de inicio
                 showPage('inicio');
                 // Luego hacer scroll a la sección de precio después de un pequeño delay
@@ -62,7 +62,17 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const pageId = this.getAttribute('data-page');
-            if (pageId) {
+            if (pageId === 'precio' || pageId === 'servicio') {
+                // Primero cambiar a la página de inicio
+                showPage('inicio');
+                // Luego hacer scroll a la sección de precio después de un pequeño delay
+                setTimeout(() => {
+                    const priceSection = document.querySelector('.price-section');
+                    if (priceSection) {
+                        priceSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+            } else if (pageId) {
                 showPage(pageId);
             }
         });
@@ -114,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('hashchange', function() {
         const hash = window.location.hash.substring(1);
         if (hash) {
-            if (hash === 'servicio') {
+            if (hash === 'servicio' || hash === 'precio') {
                 // Primero cambiar a la página de inicio
                 showPage('inicio');
                 // Luego hacer scroll a la sección de precio
@@ -140,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar página según hash
     const initialHash = window.location.hash.substring(1);
     if (initialHash) {
-        if (initialHash === 'servicio') {
+        if (initialHash === 'servicio' || initialHash === 'precio') {
             // Primero cambiar a la página de inicio
             showPage('inicio');
             // Luego hacer scroll a la sección de precio
