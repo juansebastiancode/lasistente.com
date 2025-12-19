@@ -97,12 +97,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Header transparente que se vuelve sólido al hacer scroll
     let lastScroll = 0;
     window.addEventListener('scroll', function() {
+        const isMobile = window.innerWidth <= 768;
         const currentScroll = window.pageYOffset;
         
-        if (currentScroll > 50) {
-            header.classList.add('scrolled');
+        if (isMobile) {
+            // En móvil: ocultar header al hacer scroll hacia abajo, mostrar al hacer scroll hacia arriba
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                // Scroll hacia abajo - ocultar header
+                header.classList.add('hidden');
+            } else if (currentScroll < lastScroll) {
+                // Scroll hacia arriba - mostrar header
+                header.classList.remove('hidden');
+            }
         } else {
-            header.classList.remove('scrolled');
+            // En desktop: solo cambiar el estilo al hacer scroll
+            if (currentScroll > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         }
         
         lastScroll = currentScroll;
