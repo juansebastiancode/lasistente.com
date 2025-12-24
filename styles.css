@@ -118,6 +118,28 @@ body {
     color: var(--text-color);
 }
 
+.btn-entrar {
+    text-decoration: none;
+    color: var(--primary-color);
+    background: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    padding: 0.4rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-left: 1rem;
+}
+
+.btn-entrar:hover {
+    background: #1da850;
+    border-color: #1da850;
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(32, 192, 90, 0.3);
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -782,6 +804,16 @@ main {
     .nav-link.active {
         background: transparent;
         color: var(--text-color);
+    }
+
+    .btn-entrar {
+        margin-left: 0;
+        margin-top: 1rem;
+        text-align: center;
+        display: block;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .nav-toggle {
