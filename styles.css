@@ -464,6 +464,30 @@ main {
     font-size: 1.2rem;
 }
 
+.arrow-link {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    line-height: 1;
+    transition: transform 0.3s ease;
+    animation: arrowMove 1.5s ease-in-out infinite;
+}
+
+.price-list li a:hover .arrow-link {
+    transform: translateX(5px);
+}
+
+@keyframes arrowMove {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+}
+
 /* Contact Section */
 .contact-section {
     padding: 7rem 2rem;
