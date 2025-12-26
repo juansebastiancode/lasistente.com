@@ -789,11 +789,25 @@ main {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    body {
+        background: #ffffff;
+        background-image: none;
+    }
+    
     .header {
         position: fixed !important;
         top: 0 !important;
         transform: translateY(0);
         transition: transform 0.3s ease;
+        background: #ffffff !important;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+    
+    .header.scrolled {
+        background: #ffffff !important;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
     }
     
     .header.hidden {
