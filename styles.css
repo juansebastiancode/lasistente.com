@@ -790,8 +790,15 @@ main {
 /* Responsive Design */
 @media (max-width: 768px) {
     body {
-        background: #ffffff;
-        background-image: none;
+        background: #f5f5f5;
+        background-image: 
+            radial-gradient(circle at 1px 1px, rgba(0,0,0,0.065) 1px, transparent 0);
+        background-size: 3px 3px;
+    }
+    
+    /* Solo el área del hero tiene fondo blanco */
+    #inicio .hero {
+        background-color: #ffffff;
     }
     
     .header {
@@ -808,6 +815,15 @@ main {
         background: #ffffff !important;
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
+    }
+    
+    /* Las páginas de Quiénes Somos y Aviso Legal mantienen el fondo granulado */
+    #quienes-somos .page-content,
+    #aviso-legal .page-content {
+        background: #f5f5f5;
+        background-image: 
+            radial-gradient(circle at 1px 1px, rgba(0,0,0,0.065) 1px, transparent 0);
+        background-size: 3px 3px;
     }
     
     .header.hidden {
