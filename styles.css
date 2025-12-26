@@ -120,23 +120,22 @@ body {
 
 .btn-entrar {
     text-decoration: none;
-    color: var(--primary-color);
-    background: var(--accent-color);
+    color: var(--text-color);
+    background: transparent;
     border: 2px solid var(--accent-color);
     padding: 0.4rem 1.5rem;
     border-radius: 25px;
-    font-weight: 500;
-    font-size: 0.95rem;
+    font-weight: 400;
+    font-size: 1rem;
     transition: all 0.3s ease;
     display: inline-block;
     margin-left: 1rem;
 }
 
 .btn-entrar:hover {
-    background: #1da850;
-    border-color: #1da850;
+    background: var(--accent-color);
+    border-color: var(--accent-color);
     color: var(--primary-color);
-    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(32, 192, 90, 0.3);
 }
 
@@ -867,16 +866,27 @@ main {
         font-weight: 400;
         transition: all 0.3s ease;
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        text-decoration: none;
     }
 
     .nav-link:hover {
         background: transparent;
         color: var(--text-color);
+        text-decoration: none;
+    }
+    
+    .nav-link:hover::after {
+        width: 0;
     }
 
     .nav-link.active {
         background: transparent;
-        color: var(--text-color);
+        color: var(--accent-color);
+        text-decoration: none;
+    }
+    
+    .nav-link.active::after {
+        width: 0;
     }
 
     .btn-entrar {
@@ -887,6 +897,8 @@ main {
         width: fit-content;
         margin-left: auto;
         margin-right: auto;
+        font-size: 1.2rem;
+        font-weight: 400;
     }
 
     .nav-toggle {
