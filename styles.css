@@ -206,7 +206,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8rem 2rem 4rem;
+    padding: 8rem 2rem 2rem;
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -258,7 +258,7 @@ main {
 .hero-subtitle {
     font-size: 1.8rem;
     color: var(--text-light);
-    margin-bottom: 3.5rem;
+    margin-bottom: 5rem;
     font-weight: 300;
     max-width: 700px;
     margin-left: auto;
@@ -267,7 +267,7 @@ main {
 }
 
 .hero-cta {
-    margin-bottom: 0;
+    margin-bottom: -2rem;
     display: flex;
     justify-content: center;
 }
