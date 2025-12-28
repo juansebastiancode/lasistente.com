@@ -125,12 +125,33 @@ document.addEventListener('DOMContentLoaded', function() {
     if (btnContactar) {
         btnContactar.addEventListener('click', function(e) {
             e.preventDefault();
-            const contactSection = document.querySelector('.contact-section');
-            if (contactSection) {
-                contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+            // Primero cambiar a la página de inicio
+            showPage('inicio');
+            // Luego hacer scroll a la sección de contacto
+            setTimeout(() => {
+                const contactSection = document.querySelector('.contact-section');
+                if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
         });
     }
+
+    // Manejar todos los enlaces que apuntan a #contacto
+    document.querySelectorAll('a[href="#contacto"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Primero cambiar a la página de inicio
+            showPage('inicio');
+            // Luego hacer scroll a la sección de contacto
+            setTimeout(() => {
+                const contactSection = document.querySelector('.contact-section');
+                if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        });
+    });
 
 
     // Manejo de hash en la URL
