@@ -214,9 +214,97 @@ main {
     padding-top: calc(8rem + 80px);
 }
 
+/* Sección Presentación Personal */
+.personal-intro-section {
+    padding: 5rem 2rem 0 2rem;
+    background-color: #f5f5f5;
+    background-image: 
+        radial-gradient(circle at 1px 1px, rgba(0,0,0,0.065) 1px, transparent 0);
+    background-size: 3px 3px;
+    background-position: 0 1px;
+}
+
+.personal-intro-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding-bottom: 7rem;
+}
+
+.personal-photo {
+    flex-shrink: 0;
+}
+
+.intro-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.personal-text {
+    flex: 1;
+}
+
+.intro-message {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.intro-buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-intro {
+    display: inline-block;
+    padding: 0.75rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    border: 2px solid;
+    cursor: pointer;
+}
+
+.btn-contact {
+    background: #000000;
+    color: #ffffff;
+    border-color: #000000;
+}
+
+.btn-contact:hover {
+    background: #333333;
+    border-color: #333333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-about {
+    background: transparent;
+    color: #000000;
+    border-color: #000000;
+}
+
+.btn-about:hover {
+    background: #000000;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
 /* Qué Es Section */
 .what-is-section {
-    padding: 7rem 2rem;
+    padding: 0 2rem 7rem 2rem;
     background-color: #f5f5f5;
     background-image: 
         radial-gradient(circle at 1px 1px, rgba(0,0,0,0.065) 1px, transparent 0);
@@ -355,7 +443,7 @@ main {
 
 .feature-card p {
     color: var(--text-light);
-    font-size: 1rem;
+    font-size: 1.15rem;
     line-height: 1.6;
 }
 
@@ -937,8 +1025,39 @@ main {
         margin-bottom: 2rem;
     }
 
+    .personal-intro-section {
+        padding: 3rem 1.5rem 0 1.5rem;
+    }
+
+    .personal-intro-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding-bottom: 4rem;
+    }
+
+    .intro-photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .intro-message {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .intro-buttons {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .btn-intro {
+        padding: 0.75rem 2rem;
+        font-size: 0.95rem;
+    }
+
     .what-is-section {
-        padding: 3rem 1.5rem;
+        padding: 0 1.5rem 3rem 1.5rem;
     }
 
     .hero-features {
@@ -953,7 +1072,7 @@ main {
     }
 
     .feature-card p {
-        font-size: 0.95rem;
+        font-size: 1.05rem;
     }
 
     .how-it-works-section {
@@ -1126,8 +1245,27 @@ main {
         font-size: 1rem;
     }
 
+    .personal-intro-section {
+        padding: 2.5rem 1rem 0 1rem;
+    }
+
+    .intro-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .intro-message {
+        font-size: 1rem;
+    }
+
+    .btn-intro {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+
     .what-is-section {
-        padding: 2.5rem 1rem;
+        padding: 0 1rem 2.5rem 1rem;
     }
 
     .hero-features {
@@ -1140,7 +1278,7 @@ main {
     }
 
     .feature-card p {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     .how-it-works-section {
