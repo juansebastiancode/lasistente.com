@@ -153,19 +153,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Manejar todos los enlaces que apuntan a #quienes-somos
+    document.querySelectorAll('a[href="#quienes-somos"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            showPage('quienes-somos');
+        });
+    });
+
 
     // Manejo de hash en la URL
     window.addEventListener('hashchange', function() {
         const hash = window.location.hash.substring(1);
         if (hash) {
-            if (hash === 'servicio' || hash === 'precio') {
+            if (hash === 'servicio' || hash === 'precio' || hash === 'contacto') {
                 // Primero cambiar a la página de inicio
                 showPage('inicio');
-                // Luego hacer scroll a la sección de precio
+                // Luego hacer scroll a la sección correspondiente
                 setTimeout(() => {
-                    const priceSection = document.querySelector('.price-section');
-                    if (priceSection) {
-                        priceSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    let targetSection;
+                    if (hash === 'servicio' || hash === 'precio') {
+                        targetSection = document.querySelector('.price-section');
+                    } else if (hash === 'contacto') {
+                        targetSection = document.querySelector('.contact-section');
+                    }
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 }, 100);
             } else {
@@ -176,22 +189,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
                 if (pageMap[hash]) {
                     showPage(pageMap[hash]);
+                } else {
+                    // Si el hash no coincide con ninguna página conocida, mostrar inicio
+                    showPage('inicio');
                 }
             }
+        } else {
+            // Si no hay hash, mostrar la página de inicio
+            showPage('inicio');
         }
     });
 
     // Inicializar página según hash
     const initialHash = window.location.hash.substring(1);
     if (initialHash) {
-        if (initialHash === 'servicio' || initialHash === 'precio') {
+        if (initialHash === 'servicio' || initialHash === 'precio' || initialHash === 'contacto') {
             // Primero cambiar a la página de inicio
             showPage('inicio');
-            // Luego hacer scroll a la sección de precio
+            // Luego hacer scroll a la sección correspondiente
             setTimeout(() => {
-                const priceSection = document.querySelector('.price-section');
-                if (priceSection) {
-                    priceSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                let targetSection;
+                if (initialHash === 'servicio' || initialHash === 'precio') {
+                    targetSection = document.querySelector('.price-section');
+                } else if (initialHash === 'contacto') {
+                    targetSection = document.querySelector('.contact-section');
+                }
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             }, 100);
         } else {
@@ -202,8 +226,14 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             if (pageMap[initialHash]) {
                 showPage(pageMap[initialHash]);
+            } else {
+                // Si el hash no coincide con ninguna página conocida, mostrar inicio
+                showPage('inicio');
             }
         }
+    } else {
+        // Si no hay hash, mostrar la página de inicio por defecto
+        showPage('inicio');
     }
 });
 
