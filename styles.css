@@ -954,7 +954,7 @@ main {
 
     .nav-link {
         color: var(--text-color);
-        padding: 1rem 1.5rem;
+        padding: 0.5rem 1.5rem;
         display: block;
         font-size: 1.8rem;
         font-weight: 400;
@@ -1067,7 +1067,7 @@ main {
 
     .btn-intro {
         padding: 0.75rem 2rem;
-        font-size: 0.95rem;
+        font-size: 1.2rem;
     }
 
     .what-is-section {
@@ -1314,7 +1314,7 @@ main {
 
     .btn-intro {
         padding: 0.7rem 1.5rem;
-        font-size: 0.9rem;
+        font-size: 1.1rem;
         width: 100%;
     }
 
