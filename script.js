@@ -27,6 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
             activeLink.classList.add('active');
         }
 
+        // Cambiar fondo del body para páginas con fondo blanco
+        if (pageId === 'quienes-somos' || pageId === 'aviso-legal') {
+            document.body.classList.add('white-background');
+        } else {
+            document.body.classList.remove('white-background');
+        }
+
         window.scrollTo({ top: 0, behavior: 'smooth' });
         
         if (navMenu.classList.contains('active')) {
