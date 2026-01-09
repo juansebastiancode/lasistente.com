@@ -586,6 +586,10 @@ main {
     background: #ffffff;
 }
 
+.contact-section .section-title {
+    margin-bottom: 3rem;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -1131,6 +1135,10 @@ main {
         padding: 4rem 1.5rem;
     }
 
+    .contact-section .section-title {
+        margin-bottom: 3rem;
+    }
+
     .contact-intro {
         font-size: 1.6rem;
         margin-top: -1.5rem;
@@ -1365,6 +1373,10 @@ main {
 
     .contact-section {
         padding: 3rem 1rem;
+    }
+
+    .contact-section .section-title {
+        margin-bottom: 2.5rem;
     }
 
     .contact-intro {
